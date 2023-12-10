@@ -840,14 +840,26 @@ function startVisualization () {
             newGrid.buttonsOn = false;
             newGrid.clearPath();
             
-            if(newGrid.algorithmName === "Astar")
+            if(newGrid.algorithmName === "Astar"){
+            let start = Date.now();
                 astar(newGrid.source, newGrid.destination, newGrid);
-            else if(newGrid.algorithmName === "Dijkstra")
+                let timeTaken = Date.now() - start;
+                console.log("Total time taken : " + timeTaken + " milliseconds");    }
+            else if(newGrid.algorithmName === "Dijkstra"){
+            let start = Date.now();
                 Dijkstra(newGrid, newGrid.source);
-            else if(newGrid.algorithmName === "Dfs")
+                let timeTaken = Date.now() - start;
+                console.log("Total time taken : " + timeTaken + " milliseconds");   }
+            else if(newGrid.algorithmName === "Dfs"){
+                let start = Date.now();
                 dfs(newGrid, newGrid.source);
-            else if(newGrid.algorithmName === "Bfs")
+                let timeTaken = Date.now() - start;
+                console.log("Total time taken : " + timeTaken + " milliseconds");    }
+            else if(newGrid.algorithmName === "Bfs"){
+                let start = Date.now();
                 bfs(newGrid, newGrid.source);
+                let timeTaken = Date.now() - start;
+                console.log("Total time taken : " + timeTaken + " milliseconds");    }
 
             getShortestPath(newGrid);
             launchAnimations(0, newGrid);
